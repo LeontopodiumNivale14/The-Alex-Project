@@ -73,7 +73,7 @@ public class ExampleService : IDisposable
     {
         PluginLog.Information("Watcher tick.");
         // Check if execute thread is busy
-        if (!TaskManager.IsBusy)
+        if (!PluginService.Tasks.IsBusy)
         {
             // execute thread is idle, do something
             if (!InA4NZone())

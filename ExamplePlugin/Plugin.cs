@@ -42,7 +42,7 @@ public sealed class Plugin : IDalamudPlugin
         exampleService = new ExampleService();
         Example = exampleService;
         
-        PluginService.TaskManager = new TaskManager();
+        PluginService.Tasks = new TaskManager();
 
         EzCmd.Add("/example", OnCommand,"It's great!");
 

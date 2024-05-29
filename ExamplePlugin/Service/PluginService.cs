@@ -1,4 +1,4 @@
-﻿using Dalamud.Game.ClientState.Objects;
+using Dalamud.Game.ClientState.Objects;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
@@ -43,6 +43,6 @@ public class PluginService
     [PluginService]
     public static IPluginLog PluginLog { get; private set; } = null!;
     public static Configuration Config { get; set; } = null!;
-    public static TaskManager TaskManager { get; set; } = null!;
+    public static TaskManager Tasks { get; set; } = null!;
     public static ExampleService Example { get; set; } = null!;
 }
