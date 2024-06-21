@@ -4,11 +4,10 @@ using ECommons.GameHelpers;
 using ECommons.Throttlers;
 using FFXIVClientStructs.FFXIV.Client.Game;
 using ExamplePlugin.IPC;
-using ExamplePlugin.Tasks.Base;
 
 namespace ExamplePlugin.Tasks;
 
-public class PathfindTask(Vector3 targetPosition, bool sprint = false, float toleranceDistance = 3f) : IBaseTask
+public class PathfindTask(Vector3 targetPosition, bool sprint = false, float toleranceDistance = 3f) 
 {
     public unsafe bool? Run()
     {

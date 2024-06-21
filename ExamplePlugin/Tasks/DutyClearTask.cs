@@ -6,9 +6,9 @@ using FFXIVClientStructs.FFXIV.Component.GUI;
 
 namespace ExamplePlugin.Tasks;
 
-public class DutyClearTask : IBaseTask // Clears the current duty if the current selected one does not match the right one
+public class DutyClearTask // Clears the current duty if the current selected one does not match the right one
 {
-    public unsafe bool? Run()
+    public static unsafe bool? Run()
     {
         if (TryGetAddonByName<AtkUnitBase>("ContentsFinder", out var addon) && IsAddonReady(addon))
         {

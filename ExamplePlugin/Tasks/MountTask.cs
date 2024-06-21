@@ -4,7 +4,7 @@ using FFXIVClientStructs.FFXIV.Client.Game;
 
 namespace ExamplePlugin.Tasks;
 
-public class MountTask : IBaseTask // Example to show how a condition would be used
+public class MountTask // Example to show how a condition would be used
 {
     public unsafe bool? Run()
     {

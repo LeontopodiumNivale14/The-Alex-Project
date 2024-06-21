@@ -1,6 +1,5 @@
 using ECommons.GameFunctions;
 using ECommons.Throttlers;
-using ExamplePlugin.Tasks.Base;
 using ExamplePlugin.Util;
 using FFXIVClientStructs.FFXIV.Client.Game.Control;
 using FFXIVClientStructs.FFXIV.Client.Game.Object;
@@ -10,7 +9,7 @@ using ECommons;
 
 namespace ExamplePlugin.Tasks;
 
-public class TargetTask(uint dataId) : IBaseTask
+public class TargetTask(uint dataId)
 {
     public unsafe bool? Run()
     {

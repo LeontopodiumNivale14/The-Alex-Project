@@ -5,9 +5,9 @@ using FFXIVClientStructs.FFXIV.Component.GUI;
 
 namespace ExamplePlugin.Tasks;
 
-public class LaunchDutyTask : IBaseTask // If the duty finder is not currently open, then will open it, and proceed to fire off the unsync button at the same time
+public class LaunchDutyTask // If the duty finder is not currently open, then will open it, and proceed to fire off the unsync button at the same time
 {
-    public unsafe bool? Run()
+    public static unsafe bool? Run()
     {
         if (TryGetAddonByName<AtkUnitBase>("ContentsFinder", out var addon) && IsAddonReady(addon))
         {

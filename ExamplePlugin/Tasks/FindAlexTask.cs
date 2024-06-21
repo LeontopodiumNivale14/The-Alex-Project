@@ -8,7 +8,7 @@ using FFXIVClientStructs.FFXIV.Component.GUI;
 namespace ExamplePlugin.Tasks;
 
 
-public class FindAlexTask(uint DutySelected) : IBaseTask // Currently needs work/doesn't work RN
+public class FindAlexTask(uint DutySelected) // Currently needs work/doesn't work RN
 {
     public unsafe bool? Run()
     {
