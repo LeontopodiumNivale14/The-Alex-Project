@@ -4,11 +4,11 @@ using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 
-namespace ExamplePlugin.Tasks;
+namespace ExamplePlugin.Schedular.Tasks;
 
-public class DutyClearTask // Clears the current duty if the current selected one does not match the right one
+internal class TTaskDutyCleared
 {
-    public static unsafe bool? Run()
+    internal static unsafe void Enqueue()
     {
         if (TryGetAddonByName<AtkUnitBase>("ContentsFinder", out var addon) && IsAddonReady(addon))
         {
@@ -22,10 +22,7 @@ public class DutyClearTask // Clears the current duty if the current selected on
                 {
                     Callback.Fire(addon, true, 12, 1);
                 }
-
-                return true;
             }
         }
-        return false;
     }
 }

@@ -1,13 +1,12 @@
 using ECommons.Automation;
 using ECommons.Throttlers;
-using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 
-namespace ExamplePlugin.Tasks;
+namespace ExamplePlugin.Schedular.Tasks;
 
-public class LaunchDutyTask // If the duty finder is not currently open, then will open it, and proceed to fire off the unsync button at the same time
+internal class TaskLaunchDuty
 {
-    public static unsafe bool? Run()
+    internal static unsafe void Enqueue()
     {
         if (TryGetAddonByName<AtkUnitBase>("ContentsFinder", out var addon) && IsAddonReady(addon))
         {
@@ -16,9 +15,7 @@ public class LaunchDutyTask // If the duty finder is not currently open, then wi
             {
                 Callback.Fire(addon, true, 12, 0);
                 PluginLog.Debug("Pressing the join button");
-                return true;
             }
         }
-        return false;
     }
 }

@@ -3,13 +3,10 @@ using System.Timers;
 using Dalamud.Game.ClientState.Conditions;
 using ECommons.DalamudServices;
 using ECommons.GameHelpers;
-using ExamplePlugin.Tasks;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using ExamplePlugin.Util;
-using ECommons.GameFunctions;
-using Dalamud.Game.ClientState;
-using static System.Net.Mime.MediaTypeNames;
 using ExamplePlugin.IPC;
+using ExamplePlugin.Schedular.Tasks;
 
 namespace ExamplePlugin.Service;
 
@@ -69,7 +66,7 @@ public class ExampleService : IDisposable
     /**
      * This method is called every second by the timer. Its your "Watcher" where you can decide what to do next if ideling.
      */
-    private unsafe void OnTimerUpdate(object? sender, ElapsedEventArgs e)
+    private unsafe void OnTimerUpdate(object? sender, ElapsedEventArgs e) // CURRENTLY BROKEN... ff
     {
         PluginLog.Information("Watcher tick.");
         // Check if execute thread is busy
@@ -80,7 +77,7 @@ public class ExampleService : IDisposable
             {
                 if (!DutyOpen && !ContentFinderWindow) // checks to make sure that you've not queued a duty, while also making sure the window isn't open
                 {
-                    Enqueue(new OpenDutyFinderTask());
+                    TaskOpenDutyFinder();
                     PluginLog.Information("set Unrestricted + Open Duty Finder Window");
                 }
                 else if (DutyOpen) // If the duty window is open, then will do this

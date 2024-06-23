@@ -1,13 +1,12 @@
 using ECommons.Automation;
 using ECommons.Throttlers;
-using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 
-namespace ExamplePlugin.Tasks;
+namespace ExamplePlugin.Schedular.Tasks;
 
-public class ConfirmDutyTask // If the duty finder is not currently open, then will open it, and proceed to fire off the unsync button at the same time
+internal class TaskConfirmDuty
 {
-    public static unsafe bool? Run()
+    public static unsafe void Enqueue()
     {
         if (TryGetAddonByName<AtkUnitBase>("ContentsFinderConfirm", out var addon) && IsAddonReady(addon))
         {
@@ -16,9 +15,7 @@ public class ConfirmDutyTask // If the duty finder is not currently open, then w
             {
                 Callback.Fire(addon, true, 8);
                 PluginLog.Debug("Pressing the commence button");
-                return true;
             }
         }
-        return false;
     }
 }
